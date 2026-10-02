@@ -1,0 +1,298 @@
+// Programming Club IIT Indore Database Schema
+// Provider: PostgreSQL via Prisma ORM
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ----------------------------------------------------
+// 1. DOMAINS
+// ----------------------------------------------------
+model Domain {
+  id            String          @id @default(cuid())
+  name          String
+  slug          String          @unique
+  description   String?
+  isActive      Boolean         @default(true)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  members       Member[]
+  events        Event[]
+  applications  Application[]
+  achievements  Achievement[]
+  announcements Announcement[]
+  projects      Project[]
+
+  @@map("domains")
+}
+
+// ----------------------------------------------------
+// 2. MEMBERS
+// ----------------------------------------------------
+model Member {
+  id           String      @id @default(cuid())
+  name         String
+  email        String?     @unique
+  rollNumber   String?
+  year         String?
+  domainId     String?
+  domain       Domain?     @relation(fields: [domainId], references: [id])
+  role         String      @default("Member")
+  skills       String[]
+  github       String?
+  instagram    String?
+  linkedin     String?
+  profileImage String?
+  isActive     Boolean     @default(true)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  blogPosts    BlogPost[]
+
+  @@map("members")
+}
+
+// ----------------------------------------------------
+// 3. EVENTS
+// ----------------------------------------------------
+enum EventStatus {
+  DRAFT
+  UPCOMING
+  ONGOING
+  COMPLETED
+  CANCELLED
+}
+
+model Event {
+  id                   String              @id @default(cuid())
+  title                String
+  slug                 String              @unique
+  description          String
+  domainId             String?
+  domain               Domain?             @relation(fields: [domainId], references: [id])
+  eventDate            DateTime?
+  startTime            String?
+  endTime              String?
+  venue                String?
+  registrationOpen     Boolean             @default(true)
+  registrationDeadline DateTime?
+  maxParticipants      Int?
+  registrationRequired Boolean             @default(false)
+  posterImage          String?
+  status               EventStatus         @default(UPCOMING)
+  createdAt            DateTime            @default(now())
+  updatedAt            DateTime            @updatedAt
+
+  registrations        EventRegistration[]
+
+  @@map("events")
+}
+
+// ----------------------------------------------------
+// 4. EVENT REGISTRATIONS
+// ----------------------------------------------------
+model EventRegistration {
+  id           String   @id @default(cuid())
+  eventId      String
+  event        Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  name         String
+  email        String
+  rollNumber   String
+  year         String
+  registeredAt DateTime @default(now())
+  status       String   @default("REGISTERED")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([eventId, email])
+  @@map("event_registrations")
+}
+
+// ----------------------------------------------------
+// 5. JOIN APPLICATIONS
+// ----------------------------------------------------
+enum ApplicationStatus {
+  PENDING
+  UNDER_REVIEW
+  SHORTLISTED
+  ACCEPTED
+  REJECTED
+}
+
+model Application {
+  id        String            @id @default(cuid())
+  name      String
+  email     String
+  rollNumber String
+  year      String
+  domainId  String?
+  domain    Domain?           @relation(fields: [domainId], references: [id])
+  interests String[]
+  skills    String?
+  reason    String
+  github    String?
+  linkedin  String?
+  portfolio String?
+  projects  String?
+  status    ApplicationStatus @default(PENDING)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  @@map("applications")
+}
+
+// ----------------------------------------------------
+// 6. CONTACT MESSAGES
+// ----------------------------------------------------
+enum ContactStatus {
+  UNREAD
+  READ
+  RESOLVED
+}
+
+model ContactMessage {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  status    ContactStatus @default(UNREAD)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@map("contact_messages")
+}
+
+// ----------------------------------------------------
+// 7. CLUB SETTINGS & CONTACT INFO
+// ----------------------------------------------------
+model ClubSetting {
+  id                             String   @id @default(cuid())
+  clubName                       String
+  officialEmail                  String
+  clubId                         String?
+  institution                    String
+  campusAddress                  String
+  facultyCoordinatorName         String?
+  facultyCoordinatorDesignation  String?
+  facultyCoordinatorDepartment   String?
+  facultyCoordinatorEmail        String?
+  githubUrl                      String?
+  linkedinUrl                    String?
+  instagramUrl                   String?
+  websiteUrl                     String?
+  updatedAt                      DateTime @updatedAt
+
+  @@map("club_settings")
+}
+
+// ----------------------------------------------------
+// 8. ACHIEVEMENTS
+// ----------------------------------------------------
+model Achievement {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  domainId    String?
+  domain      Domain?  @relation(fields: [domainId], references: [id])
+  year        String
+  date        DateTime?
+  image       String?
+  link        String?
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("achievements")
+}
+
+// ----------------------------------------------------
+// 9. BLOG POSTS
+// ----------------------------------------------------
+model BlogPost {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  excerpt     String?
+  content     String
+  authorId    String?
+  author      Member?   @relation(fields: [authorId], references: [id])
+  coverImage  String?
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("blog_posts")
+}
+
+// ----------------------------------------------------
+// 10. ANNOUNCEMENTS
+// ----------------------------------------------------
+model Announcement {
+  id        String    @id @default(cuid())
+  title     String
+  message   String
+  domainId  String?
+  domain    Domain?   @relation(fields: [domainId], references: [id])
+  isActive  Boolean   @default(true)
+  startsAt  DateTime?
+  expiresAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("announcements")
+}
+
+// ----------------------------------------------------
+// 11. ADMIN USERS (Prepared for Phase 2)
+// ----------------------------------------------------
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  DOMAIN_LEAD
+  EDITOR
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         AdminRole @default(ADMIN)
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("admin_users")
+}
+
+// ----------------------------------------------------
+// 12. PROJECTS
+// ----------------------------------------------------
+model Project {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String?  @unique
+  description  String
+  domainId     String?
+  domain       Domain?  @relation(fields: [domainId], references: [id])
+  technologies String[]
+  team         String[]
+  year         String?  @default("2026")
+  githubUrl    String?
+  liveUrl      String?
+  imageSrc     String?
+  featured     Boolean  @default(false)
+  isPublished  Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("projects")
+}

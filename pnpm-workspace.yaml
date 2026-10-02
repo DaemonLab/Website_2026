@@ -1,0 +1,9 @@
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  '@vgpu/adapter-node': true
+  esbuild: true
+  prisma: true
+  unrs-resolver: true
+  webgpu: true
+  workerd: true

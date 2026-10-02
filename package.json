@@ -1,0 +1,41 @@
+{
+  "name": "programming-club-iiti",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.4.0",
+    "@types/gsap": "^1.20.2",
+    "@types/three": "^0.186.0",
+    "framer-motion": "^13.4.4",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.48.0",
+    "motion-dom": "^13.4.4",
+    "next": "16.3.6",
+    "ogl": "^1.0.11",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "^0.186.1",
+    "vgpu": "^0.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "prisma": "^6.4.0",
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}
