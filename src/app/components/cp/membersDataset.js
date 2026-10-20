@@ -1,0 +1,95 @@
+// SAMPLE DATA: replace this with your real member list.
+// Keep the same column names as your spreadsheet. Empty cells are fine:
+// the matching icon is simply not shown.
+//
+// "Profile Picture" can be:
+//   - a link (including a Google Drive share link)
+//   - a file inside /public, for example "/members/aarav.jpg"
+//   - empty (the Codeforces avatar, or the initials, are used instead)
+
+export const MEMBERS_RAW = [
+  {
+    "Name": "Sample Member One",
+    "Email ID": "member1@example.com",
+    "Year of Study": "3",
+    "Skills": "C++, Graphs, Dynamic Programming",
+    "Github ID": "octocat",
+    "Instagram ID": "",
+    "Linkedin": "",
+    "Profile Picture": "",
+    "Club Joining Date": "2024-08-12",
+    "Codeforces ID": "tourist",
+  },
+  {
+    "Name": "Sample Member Two",
+    "Email ID": "member2@example.com",
+    "Year of Study": "2",
+    "Skills": "C++, Number Theory, Segment Trees",
+    "Github ID": "octocat",
+    "Instagram ID": "sample_insta",
+    "Linkedin": "sample-linkedin",
+    "Profile Picture": "",
+    "Club Joining Date": "2024-09-03",
+    "Codeforces ID": "jiangly",
+  },
+  {
+    "Name": "Sample Member Three",
+    "Email ID": "",
+    "Year of Study": "4",
+    "Skills": "Python, Greedy, Binary Search",
+    "Github ID": "octocat",
+    "Instagram ID": "",
+    "Linkedin": "",
+    "Profile Picture": "",
+    "Club Joining Date": "2023-08-20",
+    "Codeforces ID": "Benq",
+  },
+  {
+    "Name": "Sample Member Four",
+    "Email ID": "member4@example.com",
+    "Year of Study": "1",
+    "Skills": "C++, Implementation",
+    "Github ID": "",
+    "Instagram ID": "sample_insta",
+    "Linkedin": "",
+    "Profile Picture": "",
+    "Club Joining Date": "2025-01-15",
+    "Codeforces ID": "Petr",
+  },
+  {
+    "Name": "Sample Member Five",
+    "Email ID": "member5@example.com",
+    "Year of Study": "2",
+    "Skills": "Java, Graphs, Math",
+    "Github ID": "octocat",
+    "Instagram ID": "",
+    "Linkedin": "sample-linkedin",
+    "Profile Picture": "",
+    "Club Joining Date": "2024-08-30",
+    "Codeforces ID": "Um_nik",
+  },
+  {
+    "Name": "Sample Member Six",
+    "Email ID": "member6@example.com",
+    "Year of Study": "1",
+    "Skills": "C, Basics",
+    "Github ID": "",
+    "Instagram ID": "",
+    "Linkedin": "",
+    "Profile Picture": "",
+    "Club Joining Date": "2025-02-01",
+    "Codeforces ID": "",
+  },
+  {
+    "Name": "Sample Member Seven",
+    "Email ID": "member7@example.com",
+    "Year of Study": "3",
+    "Skills": "C++, Strings",
+    "Github ID": "octocat",
+    "Instagram ID": "sample_insta",
+    "Linkedin": "sample-linkedin",
+    "Profile Picture": "",
+    "Club Joining Date": "2024-10-11",
+    "Codeforces ID": "this_handle_does_not_exist_12345",
+  },
+];

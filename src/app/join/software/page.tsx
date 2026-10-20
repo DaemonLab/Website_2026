@@ -8,6 +8,7 @@ import BorderGlow from "@/components/ui/BorderGlow";
 import SpecularButton from "@/components/ui/SpecularButton";
 import PixelSnow from "@/components/ui/PixelSnow";
 import SplashCursor from "@/components/ui/SplashCursor";
+import Home_nav from "@/app/components/home/Home_nav"
 import {
   Code,
   Terminal,
@@ -114,7 +115,7 @@ export default function JoinSoftwarePage() {
           variant="square"
         />
       </div>
-
+      <Home_nav />
       <div className="relative z-10">
         {/* HERO SECTION */}
         <section className="relative isolate pt-28 pb-16 overflow-hidden">
@@ -278,7 +279,7 @@ export default function JoinSoftwarePage() {
             </p>
 
             <div className="mt-8 flex justify-center">
-              <Link href="/software">
+              <Link href="/domains/software">
                 <SpecularButton
                   size="lg"
                   radius={24}
