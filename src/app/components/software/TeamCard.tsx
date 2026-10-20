@@ -1,6 +1,6 @@
 "use client";
 
-import { TeamProfileCard } from "@/components/software/TeamProfileCard";
+import { TeamProfileCard } from "@/app/components/software/TeamProfileCard";
 import type { SoftwareTeamMember } from "@/lib/types/software";
 
 interface TeamCardProps {

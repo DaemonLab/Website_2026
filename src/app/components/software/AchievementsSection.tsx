@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SoftwareSectionBackground } from "@/components/software/SoftwareSectionBackground";
+import { SoftwareSectionBackground } from "@/app/components/software/SoftwareSectionBackground";
 import { BorderGlow } from "@/components/ui/BorderGlow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { softwareAchievements as fallbackSoftwareAchievements } from "@/data/softwareAchievements";

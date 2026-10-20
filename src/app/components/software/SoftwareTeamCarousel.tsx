@@ -1,6 +1,6 @@
 "use client";
 
-import { TeamProfileCard } from "@/components/software/TeamProfileCard";
+import { TeamProfileCard } from "@/app/components/software/TeamProfileCard";
 import { CircularCarousel } from "@/components/ui/CircularCarousel";
 import { Counter } from "@/components/ui/Counter";
 import { SectionHeading } from "@/components/ui/SectionHeading";

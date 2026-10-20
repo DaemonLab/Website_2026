@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import PixelSnow from "@/components/ui/PixelSnow";
 import SplashCursor from "@/components/ui/SplashCursor";
-import FloatingHomeBtn from "@/components/software/Home"
+import FloatingHomeBtn from "@/app/components/cp/HomeBtn"
 // Components
-import SoftwareNavbar from "@/components/software/Navbar";
-import { SoftwareHero } from "@/components/software/SoftwareHero";
-import { SoftwareOverview } from "@/components/software/SoftwareOverview";
-import { DomainCapabilities } from "@/components/software/DomainCapabilities";
-import { DevelopmentProcess } from "@/components/software/DevelopmentProcess";
-import { ProjectsSection } from "@/components/software/ProjectsSection";
-import { EventsSection } from "@/components/software/EventsSection";
-import { TeamSection } from "@/components/software/TeamSection";
-import { AchievementsSection } from "@/components/software/AchievementsSection";
-import { SoftwareCTA } from "@/components/software/SoftwareCTA";
+import SoftwareNavbar from "@/app/components/software/Navbar";
+import { SoftwareHero } from "@/app/components/software/SoftwareHero";
+import { SoftwareOverview } from "@/app/components/software/SoftwareOverview";
+import { DomainCapabilities } from "@/app/components/software/DomainCapabilities";
+import { DevelopmentProcess } from "@/app/components/software/DevelopmentProcess";
+import { ProjectsSection } from "@/app/components/software/ProjectsSection";
+import { EventsSection } from "@/app/components/software/EventsSection";
+import { TeamSection } from "@/app/components/software/TeamSection";
+import { AchievementsSection } from "@/app/components/software/AchievementsSection";
+import { SoftwareCTA } from "@/app/components/software/SoftwareCTA";
 
 export const metadata: Metadata = {
   title: {

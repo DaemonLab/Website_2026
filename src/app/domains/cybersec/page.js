@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 // Remove global blog navbar, use cybersecurity local navbar instead
-import CyberNavbar from "./components/Navbar"; 
-import CyberHero from "./components/CyberHero";
-import ProjectCard from "./components/ProjectCard";
-import AchievementsSection from "./components/AchievementsSection";
-import TeamSection from "./components/TeamSection";
-import CyberIntroOverlay from "./components/CyberIntroOverlay";
+import CyberNavbar from "../../components/cybersec/Navbar"; 
+import CyberHero from "../../components/cybersec/CyberHero";
+import ProjectCard from "../../components/cybersec/ProjectCard";
+import AchievementsSection from "../../components/cybersec/AchievementsSection";
+import TeamSection from "../../components/cybersec/TeamSection";
+import CyberIntroOverlay from "../../components/cybersec/CyberIntroOverlay";
 
 // Sample CyberSec Projects Data
 const CYBER_PROJECTS = [

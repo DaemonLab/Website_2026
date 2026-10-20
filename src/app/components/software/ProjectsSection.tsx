@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ProjectCard } from "@/components/software/ProjectCard";
-import { SoftwareSectionBackground } from "@/components/software/SoftwareSectionBackground";
+import { ProjectCard } from "@/app/components/software/ProjectCard";
+import { SoftwareSectionBackground } from "@/app/components/software/SoftwareSectionBackground";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { softwareProjects as fallbackSoftwareProjects } from "@/data/softwareProjects";
 import { fadeUp, viewportOnce } from "@/lib/motion";

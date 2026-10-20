@@ -1,6 +1,6 @@
 "use client";
 
-import { CodeBackground } from "@/components/software/CodeBackground";
+import { CodeBackground } from "@/app/components/software/CodeBackground";
 import { DecryptedText } from "@/components/ui/DecryptedText";
 import { ParticleText } from "@/components/ui/ParticleText";
 import { fadeUp, viewportOnce } from "@/lib/motion";

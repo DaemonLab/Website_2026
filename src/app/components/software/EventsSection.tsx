@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { EventCard } from "@/components/software/EventCard";
-import { SoftwareSectionBackground } from "@/components/software/SoftwareSectionBackground";
+import { EventCard } from "@/app/components/software/EventCard";
+import { SoftwareSectionBackground } from "@/app/components/software/SoftwareSectionBackground";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { softwareEvents as fallbackSoftwareEvents } from "@/data/softwareEvents";
 import { fadeUp, staggerChildren, viewportOnce } from "@/lib/motion";

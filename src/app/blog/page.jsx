@@ -2,10 +2,10 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import Home_nav from "./components/Home_nav";
-import BlogCard from "./components/BlogCard";
-import BlogFilter from "./components/BlogFilter";
-import Footer from "./components/Footer";
+import Home_nav from "../components/blog/Home_nav";
+import BlogCard from "../components/blog/BlogCard";
+import BlogFilter from "../components/blog/BlogFilter";
+import Footer from "../components/blog/Footer";
 
 // ─── Dummy Data ────────────────────────────────────────────────────────────────
 const BLOG_POSTS = [

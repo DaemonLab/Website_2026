@@ -1,6 +1,6 @@
 "use client";
 
-import { SoftwareSectionBackground } from "@/components/software/SoftwareSectionBackground";
+import { SoftwareSectionBackground } from "@/app/components/software/SoftwareSectionBackground";
 import { BorderGlow } from "@/components/ui/BorderGlow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { fadeUp, staggerChildren, viewportOnce } from "@/lib/motion";
